@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - Lucas Rocha</title>
+    <link rel="stylesheet" href="Style.css">
+    <script src="Script.js" defer></script>
+</head>
+
+<body>
+    <!--Cabeçalho do portfólio-->
+    <header class="cabecalho">
+        <h1>Lucas Rocha Fortuna Silva</h1>
+        <p><em>Estudante em formação <span>(Front-End)</span></em></p>
+        <img src="Images/minha_foto.png" alt="Foto de Lucas" class="img">
+        <button type="button" id="btn-menu" class="hamburguer" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">☰</button>
+        <nav class="menu" id="menu">
+            <a href="#sobre">Sobre mim</a>
+            <a href="#conhecimentos">Conhecimentos</a>
+            <a href="#projetos">Projetos</a>
+            <a href="#contato">Contato</a>
+            <button type="button" id="btn-tema" aria-pressed="false"><strong>Tema escuro</strong></button>
+        </nav>
+    </header>
+
+    <!--Conteúdo principal-->
+    <main>
+        <!--Seção de sobre mim-->
+        <section class="secao" id="sobre">
+            <h2><em>Sobre mim:</em></h2>
+            <p>
+                <strong>Tenho 18 anos</strong>, apresento ensino médio completo pelo <strong>Sartre COC.</strong> <br> Em
+                <strong>2026</strong> me tornei estudante de engenharia de software (bacharelado) na
+                <strong>UCSAL.</strong>
+            </p>
+            <button type="button" id="btn-mostrar" aria-expanded="false" aria-controls="sobre-extra">Mostrar mais</button>
+            <div id="sobre-extra" hidden>
+                Sou uma pessoa muito curiosa, gosto muito de aprender inovações novas e ferramentas atuais.<br>Apresento
+                um interesse muito grande pela área de Back-end e gosto muito de criar e colocar em prática novas
+                ideias.
+            </div>
+        </section>
+
+        <!--Seção de conhecimentos-->
+        <section class="secao" id="conhecimentos">
+            <h2><em>Conhecimentos</em></h2>
+            <p>Estou aprendendo a ter afinidade com diversas linguagens de programação, como: </p>
+            <div class="tabela-scroll">
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Tecnologia</th>
+                            <th>Nível</th>
+                            <th>Onde aplico</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>HTML</td>
+                            <td>Básico</td>
+                            <td>Estruturas de páginas</td>
+                        </tr>
+                        <tr>
+                            <td>CSS</td>
+                            <td>Básico</td>
+                            <td>Estilização visual</td>
+                        </tr>
+                        <tr>
+                            <td>Javascript</td>
+                            <td>Básico</td>
+                            <td>Interatividade</td>
+                        </tr>
+                        <tr>
+                            <td>Java</td>
+                            <td>Intermediário</td>
+                            <td>Desenvolvimento Back-End</td>
+                        </tr>
+                        <tr>
+                            <td>SQL</td>
+                            <td>Básico</td>
+                            <td>Análise de dados</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>E para realizar meus estudos eu estou utilizando diversas ferramentas, como:</p>
+            <ol>
+                <li>Git</li>
+                <li>Github</li>
+                <li>Eclipse</li>
+                <li>IntelliJ</li>
+                <li>VScode</li>
+                <li>pgAdmin 4</li>
+            </ol>
+            <div class="tabela-scroll">
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Ferramentas</th>
+                            <th>Nível</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Git</td>
+                            <td>Intermediário</td>
+                        </tr>
+                        <tr>
+                            <td>Github</td>
+                            <td>Intermediário</td>
+                        </tr>
+                        <tr>
+                            <td>Eclipse</td>
+                            <td>Avançado</td>
+                        </tr>
+                        <tr>
+                            <td>IntelliJ</td>
+                            <td>Básico</td>
+                        </tr>
+                        <tr>
+                            <td>VScode</td>
+                            <td>Intermediário</td>
+                        </tr>
+                        <tr>
+                            <td>pgAdmin 4</td>
+                            <td>Básico</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!--Seção de projetos-->
+        <section class="secao" id="projetos">
+            <h2><em>Projetos</em></h2>
+
+            <div id="filtros">
+                <button type="button" data-filtro="todos" aria-pressed="true">Todos</button>
+                <button type="button" data-filtro="frontend" aria-pressed="false">Front-End</button>
+                <button type="button" data-filtro="backend" aria-pressed="false">Back-End</button>
+            </div>
+
+            <p id="contador">Projetos visíveis: 0</p>
+
+            <div id="lista-projetos" class="cards"></div>
+
+            <h3>Cadastrar Novo Projeto</h3>
+            <form id="form-projeto" novalidate>
+                <label for="p-titulo">Título</label>
+                <input type="text" id="p-titulo" required minlength="3">
+                <span class="erro" id="erro-titulo"></span>
+
+                <label for="p-categoria">Categoria</label>
+                <select id="p-categoria" required>
+                    <option value="">Selecione...</option>
+                    <option value="frontend">Front-End</option>
+                    <option value="backend">Back-End</option>
+                </select>
+                <span class="erro" id="erro-categoria"></span>
+
+                <label for="p-desc">Descrição</label>
+                <textarea id="p-desc" required minlength="10"></textarea>
+                <span class="erro" id="erro-desc"></span>
+
+                <button type="submit">Adicionar Projeto</button>
+            </form>
+        </section>
+
+        <!--Seção de contato-->
+        <section class="secao" id="contato">
+            <h2><em>Contato</em></h2>
+
+            <div id="resumo-erros" class="resumo-erros" aria-live="polite" tabindex="-1" hidden></div>
+
+            <form id="form-contato" novalidate>
+                <label for="c-nome">Nome</label>
+                <input type="text" id="c-nome" name="nome" required minlength="3" maxlength="80"
+                    autocomplete="name" aria-describedby="erro-c-nome">
+                <span class="erro" id="erro-c-nome"></span>
+
+                <label for="c-email">E-mail</label>
+                <input type="email" id="c-email" name="email" required
+                    autocomplete="email" aria-describedby="erro-c-email">
+                <span class="erro" id="erro-c-email"></span>
+
+                <label for="c-motivo">Motivo do contato</label>
+                <select id="c-motivo" name="motivo" required aria-describedby="erro-c-motivo">
+                    <option value="">Selecione...</option>
+                    <option value="oportunidade">Oportunidade profissional</option>
+                    <option value="freelance">Projeto freelance</option>
+                    <option value="outro">Outro</option>
+                </select>
+                <span class="erro" id="erro-c-motivo"></span>
+
+                <div id="grupo-assunto" hidden>
+                    <label for="c-assunto">Assunto adicional</label>
+                    <input type="text" id="c-assunto" name="assunto" minlength="5" maxlength="100"
+                        disabled aria-describedby="erro-c-assunto">
+                    <span class="erro" id="erro-c-assunto"></span>
+                </div>
+
+                <label for="c-mensagem">Mensagem</label>
+                <textarea id="c-mensagem" name="mensagem" required minlength="30" maxlength="1000"
+                        aria-describedby="contador-msg erro-c-mensagem"></textarea>
+                <small id="contador-msg" aria-live="polite">0 / 1000 (mínimo 30)</small>
+                <span class="erro" id="erro-c-mensagem"></span>
+
+                <label for="c-simular">Simulação do envio (somente para teste)</label>
+                <select id="c-simular">
+                    <option value="sucesso">Simular sucesso</option>
+                    <option value="falha">Simular falha</option>
+                </select>
+
+                <button type="submit" id="btn-enviar">Enviar mensagem</button>
+                <p id="status-contato" class="status" role="status" aria-live="polite"></p>
+            </form>
+
+            <p class="nota">
+                Este formulário é uma demonstração: <strong>nenhum e-mail é enviado</strong>.
+                Para falar comigo de verdade, use o
+                <a href="https://www.linkedin.com/in/lucas-rocha-10ba7b409/">LinkedIn</a> ou o
+                <a href="https://github.com/lucasrochafortuna-ui">GitHub</a>.
+            </p>
+        </section>
+    </main>
+
+    <!--Rodapé-->
+    <footer class="extra">
+        <p>Portfólio de Lucas Rocha Fortuna Silva - 2026</p>
+        <hr>
+        <p>Desenvolvido na atividade da disciplina Programação Front-End.</p>
+    </footer>
+</body>
+</html>

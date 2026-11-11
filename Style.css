@@ -1,0 +1,259 @@
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background-color: whitesmoke;
+    color: darkslategray;
+    line-height: 1.6;
+}
+.img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%;
+}
+* {
+    box-sizing: border-box;
+}
+.cabecalho {
+    background-color: navy;
+    color: whitesmoke;
+    padding: 20px;
+    text-align: center;
+    border-radius: 20px;
+    width: 100%;
+}
+.menu{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 20px;
+}
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 24px;
+    background-color: #3a3aff;
+    border-radius: 8px;
+    transition: background-color 0.2s, transform 0.2s;
+}
+.menu a:hover {
+    background-color: #6c6cff;
+    transform: translateY(-2px);
+}
+.secao {
+    display:flex;
+    flex-direction:column;
+    gap:1px;
+    background-color: white;
+    margin-bottom: 25px;
+    padding: 25px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+.extra {
+    max-width: 1000px;
+    margin: 0 auto 30px auto;
+    padding: 25px;
+    background-color: lightgray;
+    border-left: 6px solid gray;
+    border-radius: 10px;
+}
+.cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.card {
+    background-color: aliceblue;
+    border: 2px solid lightblue;
+    border-radius: 12px;
+    padding: 20px;
+    flex: 1;
+    min-width: 250px;
+}
+.card aside {
+    display:flex;
+    align-items: center;
+}
+.titulo-centro {
+    text-align: center;
+}
+.info-extra {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+.info-extra ul{
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.info-extra li {
+    margin-bottom: 8px;
+}
+.botao {
+    display: block;
+    width: fit-content;
+    margin-top: 10px;
+    padding: 1px 10px;
+    background-color: royalblue;
+    color: white;
+    text-decoration: none;
+    border-radius: 15px;
+    font-weight: bold;
+}
+.botao:hover {
+    background-color: mediumblue;
+}
+.tabela-scroll {
+    overflow-x: auto;
+}
+.hamburguer {
+    display: none;
+    margin: 15px auto 0;
+    padding: 8px 18px;
+    font-size: 26px;
+    line-height: 1;
+    background-color: #3a3aff;
+    border:none;
+    border-radius: 8px;
+}
+.menu button {
+    margin-top: 0;
+    padding: 10px 24px;
+    background-color: #3a3aff;
+    border:none;
+    border-radius: 8px;
+    font-size: 16px;
+    transition:background-color 0.2s, transform 0.2s;
+}
+.menu button:hover {
+    background-color: #6c6cff;
+    transform: translateY(-2px);
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+th {
+    background-color: navy;
+    color: white;
+}
+th, td {
+    border: 1px solid lightgray;
+    padding: 12px;
+    text-align: left;
+}
+tr:nth-child(even) {
+    background-color: aliceblue;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+label {
+    margin-top: 12px;
+    font-weight: bold;
+}
+input, textarea {
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-radius: 20px;
+    font-size: 16px;
+}
+button {
+    margin-top: 15px;
+    padding: 12px;
+    background-color: navy;
+    color: white;
+    border: 2px solid navy;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+#grupo-assunto { display: flex; flex-direction: column; }
+#contador-msg { margin-top: 4px; font-size: 14px; }
+.nota { font-size: 14px; margin-top: 15px; }
+
+.resumo-erros {
+    border: 2px solid crimson;
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 15px;
+    background-color: #fff0f0;
+    color: #7a0019;
+}
+.resumo-erros ul { margin: 8px 0 0; padding-left: 20px; }
+
+.status { font-weight: bold; min-height: 1.5em; }
+.status.sucesso { color: seagreen; }
+.status.erro, .status.falha { color: crimson; }
+.status.processando { color: royalblue; }
+
+button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+body.escuro .resumo-erros { background-color: #3a1620; color: #ffd6dc; }
+@media (max-width: 768px) {
+    .cards {
+        flex-direction: column;
+    }
+    .cabecalho h1 {
+        font-size: 28px;
+    }
+    .hamburguer{display: block;}
+    .menu {
+        display: none;
+        flex-direction: column;
+    }
+    .menu.aberto{display: flex;}
+    .menu a, .menu button{
+        width: 100%;
+        text-align: center;
+    }
+}
+@media (max-width: 390px) {
+    .cabecalho h1 {
+        font-size: 22px;
+    }
+    .menu a {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+    th, td {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
+[hidden] { display: none !important; }
+
+button:focus-visible, a:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible {
+    outline: 3px solid orange;
+    outline-offset: 2px;
+}
+#filtros { display: flex; gap: 10px; flex-wrap: wrap; margin: 10px 0 20px; }
+#filtros button { margin-top: 0; }
+#filtros button[aria-pressed="true"] { background-color: royalblue; border-color: royalblue; }
+.btn-remover { background-color: crimson; border-color: crimson; padding: 6px 14px; }
+.destaque { border-color: orange; box-shadow: 0 0 0 3px orange; }   /* alteração C */
+.erro { color: crimson; font-size: 14px; min-height: 1em; }
+input.invalido, select.invalido, textarea.invalido { border-color: crimson; }
+select { margin-top: 5px; padding: 10px; border: 1px solid lightgray; border-radius: 20px; font-size: 16px; }
+body.escuro { background-color: #121826; color: #e6e6e6; }
+body.escuro .secao { background-color: #1c2438; border-color: #334; }
+body.escuro .card { background-color: #232d45; border-color: #3b4a73; }
+body.escuro input, body.escuro textarea, body.escuro select {
+    background-color: #1c2438; color: #fff; border-color: #556;
+}
+body.escuro tr:nth-child(even) { background-color: #232d45; }
