@@ -19,7 +19,6 @@ portfolio/
     └── minha_foto.png
 ```
 
-(Ajuste a estrutura se a sua pasta tiver outros arquivos. O ZIP também deve ter a pasta do laboratório, separada.)
 
 ## Funcionalidades
 
