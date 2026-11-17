@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfólio - Lucas Rocha</title>
+    <link rel="icon" href="data:,">
     <link rel="stylesheet" href="Style.css">
     <script src="Script.js" defer></script>
 </head>
@@ -13,7 +14,7 @@
     <!--Cabeçalho do portfólio-->
     <header class="cabecalho">
         <h1>Lucas Rocha Fortuna Silva</h1>
-        <p><em>Estudante em formação <span>(Front-End)</span></em></p>
+        <p>Estudante em formação <span>(Front-End)</span></p>
         <img src="Images/minha_foto.png" alt="Foto de Lucas" class="img">
         <button type="button" id="btn-menu" class="hamburguer" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">☰</button>
         <nav class="menu" id="menu">
@@ -29,7 +30,7 @@
     <main>
         <!--Seção de sobre mim-->
         <section class="secao" id="sobre">
-            <h2><em>Sobre mim:</em></h2>
+            <h2>Sobre mim:</h2>
             <p>
                 <strong>Tenho 18 anos</strong>, apresento ensino médio completo pelo <strong>Sartre COC.</strong> <br> Em
                 <strong>2026</strong> me tornei estudante de engenharia de software (bacharelado) na
@@ -37,15 +38,18 @@
             </p>
             <button type="button" id="btn-mostrar" aria-expanded="false" aria-controls="sobre-extra">Mostrar mais</button>
             <div id="sobre-extra" hidden>
-                Sou uma pessoa muito curiosa, gosto muito de aprender inovações novas e ferramentas atuais.<br>Apresento
+                Sou uma pessoa muito curiosa, gosto muito de aprender inovações novas e ferramentas atuais.
+                <br>Apresento
                 um interesse muito grande pela área de Back-end e gosto muito de criar e colocar em prática novas
                 ideias.
+                <br>Sou integrante da liga de robótica da Universidade Católica de Salvador (CALABOTICS), onde estou aprendendo outras linguagens de programação como C++ e C#.
+                <br>O que não falta para mim é perseverança, interesse por aprender coisas novas e compromisso com os meus deveres. 
             </div>
         </section>
 
         <!--Seção de conhecimentos-->
         <section class="secao" id="conhecimentos">
-            <h2><em>Conhecimentos</em></h2>
+            <h2>Conhecimentos</h2>
             <p>Estou aprendendo a ter afinidade com diversas linguagens de programação, como: </p>
             <div class="tabela-scroll">
                 <table border="1">
@@ -81,6 +85,11 @@
                             <td>SQL</td>
                             <td>Básico</td>
                             <td>Análise de dados</td>
+                        </tr>
+                        <tr>
+                            <td>C++</td>
+                            <td>Básico</td>
+                            <td>Desenvolvimento de projetos com arduino</td>
                         </tr>
                     </tbody>
                 </table>
@@ -134,43 +143,64 @@
 
         <!--Seção de projetos-->
         <section class="secao" id="projetos">
-            <h2><em>Projetos</em></h2>
+            <h2>Projetos</h2>
 
-            <div id="filtros">
+            <div id="filtros" role="group" aria-label="Filtrar projetos por categoria">
                 <button type="button" data-filtro="todos" aria-pressed="true">Todos</button>
+                <button type="button" data-filtro="html" aria-pressed="false">HTML</button>
                 <button type="button" data-filtro="frontend" aria-pressed="false">Front-End</button>
                 <button type="button" data-filtro="backend" aria-pressed="false">Back-End</button>
             </div>
 
             <p id="contador">Projetos visíveis: 0</p>
 
-            <div id="lista-projetos" class="cards"></div>
+            <div class="cards" id="lista-projetos"></div>
 
-            <h3>Cadastrar Novo Projeto</h3>
+            <h2>Projetos produzidos durante a minha formação em Engenharia de Software (BES)</h2>
+        </section>
+        <section class="secao" id="admin" hidden>
+            <h2>Painel do administrador</h2>
+
+            <h3>Cadastrar novo projeto</h3>
             <form id="form-projeto" novalidate>
                 <label for="p-titulo">Título</label>
-                <input type="text" id="p-titulo" required minlength="3">
+                <input type="text" id="p-titulo" name="titulo" aria-describedby="erro-titulo">
                 <span class="erro" id="erro-titulo"></span>
 
                 <label for="p-categoria">Categoria</label>
-                <select id="p-categoria" required>
+                <select id="p-categoria" name="categoria" aria-describedby="erro-categoria">
                     <option value="">Selecione...</option>
+                    <option value="html">HTML</option>
                     <option value="frontend">Front-End</option>
                     <option value="backend">Back-End</option>
                 </select>
                 <span class="erro" id="erro-categoria"></span>
 
                 <label for="p-desc">Descrição</label>
-                <textarea id="p-desc" required minlength="10"></textarea>
+                <textarea id="p-desc" name="descricao" aria-describedby="erro-desc"></textarea>
                 <span class="erro" id="erro-desc"></span>
+
+                <label for="p-link">Link do Github</label>
+                <input type="url" id="p-link" name="link" placeholder="https://github.com/lucasrochafortuna-ui/repositorio"
+                    aria-describedby="erro-link">
+                <span class="erro" id="erro-link"></span>
 
                 <button type="submit">Adicionar Projeto</button>
             </form>
+
+            <h3>Projetos cadastrados</h3>
+            <ul id="lista-admin"></ul>
+            <p id="status-admin" role="status"></p>
+
+            <div class="acoes">
+                <button type="button" id="btn-exportar">Copiar JSON para publicar</button>
+                <button type="button" id="btn-resetar" class="btn-secundario">Voltar à lista publicada</button>
+            </div>
         </section>
 
         <!--Seção de contato-->
         <section class="secao" id="contato">
-            <h2><em>Contato</em></h2>
+            <h2>Contato</h2>
 
             <div id="resumo-erros" class="resumo-erros" aria-live="polite" tabindex="-1" hidden></div>
 
@@ -207,20 +237,14 @@
                 <small id="contador-msg" aria-live="polite">0 / 1000 (mínimo 30)</small>
                 <span class="erro" id="erro-c-mensagem"></span>
 
-                <label for="c-simular">Simulação do envio (somente para teste)</label>
-                <select id="c-simular">
-                    <option value="sucesso">Simular sucesso</option>
-                    <option value="falha">Simular falha</option>
-                </select>
-
                 <button type="submit" id="btn-enviar">Enviar mensagem</button>
                 <p id="status-contato" class="status" role="status" aria-live="polite"></p>
             </form>
 
             <p class="nota">
-                Este formulário é uma demonstração: <strong>nenhum e-mail é enviado</strong>.
-                Para falar comigo de verdade, use o
-                <a href="https://www.linkedin.com/in/lucas-rocha-10ba7b409/">LinkedIn</a> ou o
+                Ao enviar, o WhatsApp abrirá com a sua mensagem pronta; ela só é enviada quando você confirmar por lá.
+                Você também pode falar comigo pelo
+                <a href="https://www.linkedin.com/in/lucas-rocha-10ba7b409/">LinkedIn</a> ou pelo
                 <a href="https://github.com/lucasrochafortuna-ui">GitHub</a>.
             </p>
         </section>
@@ -231,6 +255,20 @@
         <p>Portfólio de Lucas Rocha Fortuna Silva - 2026</p>
         <hr>
         <p>Desenvolvido na atividade da disciplina Programação Front-End.</p>
+        <button type="button" id="btn-admin">Entrar como admin</button>
+
+        <dialog id="dlg-login" aria-labelledby="titulo-login">
+            <form id="form-login" novalidate>
+                <h3 id="titulo-login">Entrar como administrador</h3>
+                <label for="l-senha">Senha</label>
+                <input type="password" id="l-senha" autocomplete="current-password">
+                <span class="erro" id="erro-login" role="alert"></span>
+                <div class="acoes">
+                    <button type="submit">Entrar</button>
+                    <button type="button" id="btn-cancelar-login" class="btn-secundario">Cancelar</button>
+                </div>
+            </form>
+        </dialog>
     </footer>
 </body>
 </html>

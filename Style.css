@@ -13,6 +13,11 @@ body{
     aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: 50%;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.img:hover {
+    transform: scale(1.05) rotate(3deg);
+    box-shadow: 0 0 25px rgba(108, 108, 255, 0.8);
 }
 * {
     box-sizing: border-box;
@@ -23,7 +28,8 @@ body{
     padding: 20px;
     text-align: center;
     border-radius: 20px;
-    width: 100%;
+    width:min(100% - 32px, 1100px); 
+    margin: 16px auto 25px;
 }
 .menu{
     display:flex;
@@ -55,9 +61,11 @@ body{
     border: 1px solid lightgray;
     border-radius: 10px;
 }
+.secao h2, cabecalho p{ font-size: italic; }
+.card img{ border-radius: 8px; margin-bottom: 10px;}
 .extra {
-    max-width: 1000px;
-    margin: 0 auto 30px auto;
+    max-width: min(100% - 32px, 1000px);
+    margin: 0 auto 30px;
     padding: 25px;
     background-color: lightgray;
     border-left: 6px solid gray;
@@ -74,31 +82,12 @@ body{
     border-radius: 12px;
     padding: 20px;
     flex: 1;
-    min-width: 250px;
+    min-width: min(250px, 100%);
+    overflow-wrap: anywhere;
 }
-.card aside {
-    display:flex;
-    align-items: center;
-}
-.titulo-centro {
-    text-align: center;
-}
-.info-extra {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
-}
-.info-extra ul{
-    list-style: none;
-    padding: 0;
-    margin: 15px 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-.info-extra li {
-    margin-bottom: 8px;
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 .botao {
     display: block;
@@ -113,6 +102,13 @@ body{
 }
 .botao:hover {
     background-color: mediumblue;
+    transform: translateY(-2px);
+}
+.botao, button {
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+button:active {
+    transform: scale(0.97);
 }
 .tabela-scroll {
     overflow-x: auto;
@@ -140,6 +136,7 @@ body{
     background-color: #6c6cff;
     transform: translateY(-2px);
 }
+.menu button:active { transform: scale(0.97); }
 table {
     width: 100%;
     border-collapse: collapse;
@@ -165,7 +162,7 @@ label {
     margin-top: 12px;
     font-weight: bold;
 }
-input, textarea {
+input, textarea, select {
     margin-top: 5px;
     padding: 10px;
     border: 1px solid lightgray;
@@ -182,6 +179,7 @@ button {
     font-weight: bold;
     cursor: pointer;
 }
+img { max-width: 100%; height: auto;}
 #grupo-assunto { display: flex; flex-direction: column; }
 #contador-msg { margin-top: 4px; font-size: 14px; }
 .nota { font-size: 14px; margin-top: 15px; }
@@ -204,6 +202,26 @@ button {
 button:disabled { opacity: 0.6; cursor: not-allowed; }
 
 body.escuro .resumo-erros { background-color: #3a1620; color: #ffd6dc; }
+
+.acoes {display: flex; gap: 10px; flex-wrap: wrap;}
+.btn-secundario {background-color: #595959; border-color: #595959;}
+
+#lista-admin {list-style: none; padding: 0; margin: 10px 0;}
+#lista-admin li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:10px;
+    padding: 8px 0;
+    border-bottom: 1px solid lightgray;
+}
+#status-admin { font-weight: bold; min-height: 1.5em;}
+#btn-admin { margin-top: 0; padding: 8px 16px; font-size: 14px;} 
+
+dialog {border: 1px solid lightgray; border-radius: 12px; padding: 20px; width: 90%; max-width: 360px; }
+dialog::backdrop {background: rgba(0, 0, 0, 0.5);}
+body.escuro dialog {background-color: #1c2438; color: #fff;}
+span.erro { color: crimson; font-size: 14px; min-height: 1em; }
 @media (max-width: 768px) {
     .cards {
         flex-direction: column;
@@ -244,16 +262,74 @@ select:focus-visible, textarea:focus-visible {
 }
 #filtros { display: flex; gap: 10px; flex-wrap: wrap; margin: 10px 0 20px; }
 #filtros button { margin-top: 0; }
-#filtros button[aria-pressed="true"] { background-color: royalblue; border-color: royalblue; }
+#filtros button[aria-pressed="true"] { background-color: royalblue; border-color: royalblue; text-decoration: underline; text-underline-offset:4px }
 .btn-remover { background-color: crimson; border-color: crimson; padding: 6px 14px; }
-.destaque { border-color: orange; box-shadow: 0 0 0 3px orange; }   /* alteração C */
-.erro { color: crimson; font-size: 14px; min-height: 1em; }
 input.invalido, select.invalido, textarea.invalido { border-color: crimson; }
-select { margin-top: 5px; padding: 10px; border: 1px solid lightgray; border-radius: 20px; font-size: 16px; }
-body.escuro { background-color: #121826; color: #e6e6e6; }
+
+body.escuro { background-color: #121826; color: #e6e6e6;}
 body.escuro .secao { background-color: #1c2438; border-color: #334; }
 body.escuro .card { background-color: #232d45; border-color: #3b4a73; }
 body.escuro input, body.escuro textarea, body.escuro select {
     background-color: #1c2438; color: #fff; border-color: #556;
 }
+body.escuro .extra { background-color: #1c2438; border-left-color: #556; }
+body.escuro .nota a { color: #8ab4ff; }
+body.escuro .erro,
+body.escuro .status.erro,
+body.escuro .status.falha { color: #ff8a9b; }
+body.escuro .status.sucesso { color: #2e7d32; }
+body.escuro .status.processando { color: #8ab4ff; }
 body.escuro tr:nth-child(even) { background-color: #232d45; }
+/* ===== Animações ===== */
+@keyframes surgir-baixo {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.cabecalho h1,
+.cabecalho p,
+.cabecalho .img,
+.cabecalho .menu {
+    animation: surgir-baixo 0.7s ease-out backwards;
+}
+main       { width: min(100% - 32px, 1100px); margin: 0 auto; }
+#btn-mostrar { align-self: flex-start; }
+.cabecalho p     { animation-delay: 0.15s; }
+.cabecalho .img  { animation-delay: 0.3s; }
+.cabecalho .menu { animation-delay: 0.45s; }
+/*=============Revelar ao rolar a pagina=================*/
+.revelar {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.revelar.visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
+/*============Transição suave entre tema escuro==================*/
+html {
+    scroll-behavior: smooth;
+}
+body {
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+.secao, .card {
+    transition: background-color 0.4s ease, border-color 0.4s ease,
+                transform 0.25s ease, box-shadow 0.25s ease;
+}
+.secao.revelar {
+    transition: opacity 0.8s ease, transform 0.8s ease,
+                background-color 0.4s ease, border-color 0.4s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+    .revelar {
+        opacity: 1;
+        transform: none;
+    }
+}
