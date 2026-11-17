@@ -48,7 +48,7 @@ body{
     transition: background-color 0.2s, transform 0.2s;
 }
 .menu a:hover {
-    background-color: #6c6cff;
+    background-color: #5252ff;
     transform: translateY(-2px);
 }
 .secao {
@@ -61,7 +61,7 @@ body{
     border: 1px solid lightgray;
     border-radius: 10px;
 }
-.secao h2, cabecalho p{ font-size: italic; }
+.secao h2, cabecalho p{ font-style: italic; }
 .card img{ border-radius: 8px; margin-bottom: 10px;}
 .extra {
     max-width: min(100% - 32px, 1000px);
@@ -133,7 +133,7 @@ button:active {
     transition:background-color 0.2s, transform 0.2s;
 }
 .menu button:hover {
-    background-color: #6c6cff;
+    background-color: #5253ff;
     transform: translateY(-2px);
 }
 .menu button:active { transform: scale(0.97); }
@@ -277,7 +277,8 @@ body.escuro .nota a { color: #8ab4ff; }
 body.escuro .erro,
 body.escuro .status.erro,
 body.escuro .status.falha { color: #ff8a9b; }
-body.escuro .status.sucesso { color: #2e7d32; }
+.status.sucesso { color: #2e7d32; } 
+body.escuro .status.sucesso { color: #6fdc9a; }
 body.escuro .status.processando { color: #8ab4ff; }
 body.escuro tr:nth-child(even) { background-color: #232d45; }
 /* ===== Animações ===== */

@@ -17,7 +17,7 @@
         <p>Estudante em formação <span>(Front-End)</span></p>
         <img src="Images/minha_foto.png" alt="Foto de Lucas" class="img">
         <button type="button" id="btn-menu" class="hamburguer" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">☰</button>
-        <nav class="menu" id="menu">
+        <nav class="menu" id="menu" aria-label="Menu principal">
             <a href="#sobre">Sobre mim</a>
             <a href="#conhecimentos">Conhecimentos</a>
             <a href="#projetos">Projetos</a>
@@ -144,6 +144,7 @@
         <!--Seção de projetos-->
         <section class="secao" id="projetos">
             <h2>Projetos</h2>
+            <p>Projetos produzidos durante a minha formação em Engenharia de Software (BES)</p>
 
             <div id="filtros" role="group" aria-label="Filtrar projetos por categoria">
                 <button type="button" data-filtro="todos" aria-pressed="true">Todos</button>
@@ -152,11 +153,9 @@
                 <button type="button" data-filtro="backend" aria-pressed="false">Back-End</button>
             </div>
 
-            <p id="contador">Projetos visíveis: 0</p>
+            <p id="contador" role="status">Projetos visíveis: 0</p>
 
             <div class="cards" id="lista-projetos"></div>
-
-            <h2>Projetos produzidos durante a minha formação em Engenharia de Software (BES)</h2>
         </section>
         <section class="secao" id="admin" hidden>
             <h2>Painel do administrador</h2>
