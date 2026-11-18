@@ -137,6 +137,11 @@ button:active {
     transform: translateY(-2px);
 }
 .menu button:active { transform: scale(0.97); }
+.foco {
+    color: #00c3ff;
+    font-weight: 600;
+    font-size: 1rem;
+}
 table {
     width: 100%;
     border-collapse: collapse;
@@ -195,7 +200,7 @@ img { max-width: 100%; height: auto;}
 .resumo-erros ul { margin: 8px 0 0; padding-left: 20px; }
 
 .status { font-weight: bold; min-height: 1.5em; }
-.status.sucesso { color: seagreen; }
+.status.sucesso { color: #2e7d32; }
 .status.erro, .status.falha { color: crimson; }
 .status.processando { color: royalblue; }
 

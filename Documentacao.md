@@ -1,10 +1,5 @@
 # Documentação técnica — Portfólio
 
-> **Como usar este modelo:** os trechos em _itálico entre parênteses_ são para você preencher
-> (prints, resultados dos testes, revisão do colega). O restante é um rascunho baseado no código
-> atual: **leia, confira no navegador e reescreva com suas palavras**. Você precisa conseguir
-> explicar cada ponto na apresentação.
-
 ## Sumário
 
 1. [Diagnóstico de cinco problemas](#1-diagnóstico-de-cinco-problemas)

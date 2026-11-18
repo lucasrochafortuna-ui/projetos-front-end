@@ -94,7 +94,7 @@ function criarCard(p) {
     card.className = "card";
 
     const h3 = document.createElement("h3");
-    h3.textContent = p.titulo;                       // textContent: não injeta HTML
+    h3.textContent = p.titulo;                       
     const desc = document.createElement("p");
     desc.textContent = p.descricao;
     const cat = document.createElement("p");
@@ -168,7 +168,7 @@ listaAdmin.addEventListener("click", (e) => {
     statusAdmin.textContent = `Projeto "${projeto.titulo}" removido (só nesta cópia local).`;
 });
 
-// Cadastro validado
+// ===========Cadastro validado=============
 const form = document.getElementById("form-projeto");
 const campos = [
     { el: document.getElementById("p-titulo"), erro: "erro-titulo",
